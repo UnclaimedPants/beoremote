@@ -3,9 +3,12 @@ Bang &amp; Olufsen Arduino IR Receiver for Beo4 Remote for use with Kodi TV over
 
 ## Assumptions
 
+You have the following:
+
 1. Arduino Uno
-2. B&O Ir Eye, wired to pin 10 (IR), 5V (+), GND (-)
+2. B&O IR Eye, wired to pin 10 on the Arduino Uno, 5V, GND
 3. Arduino connected to Kodi host via USB
+4. B&O Beo4 Remote
 
 ## IR Receiver
 
