@@ -2,7 +2,7 @@
 
 # Python Arduino Bang & Olufsen Beo4 Remote using B&O IR Eye to control Kodi TV
 #
-# Todo:
+# Todos:
 #   1. Subscribe to notifications and keep state on current player and status
 #   2. Periodically fetch status in case status changes
 #
