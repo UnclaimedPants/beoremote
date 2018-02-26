@@ -140,7 +140,7 @@ def ir_command(kodi, remote, command):
             return
 
     # Mapped codes
-    if command in {'00000D', '00005C', '000036', '0000D5', '0000D9', '000035', '00001E', '00001F', '000032', '000034', '000088'}:
+    if command in {'0000D4', '00000D', '00005C', '000036', '0000D5', '0000D9', '000035', '00001E', '00001F', '000032', '000034', '000088'}:
         pass
     else:
         log.debug('Unmapped Code: ' + command)
@@ -175,6 +175,18 @@ def ir_command(kodi, remote, command):
     # Red
     if command == '0000D9':
         kodi.Player.Stop(playerObj.get('playerid'))
+        return
+
+    # Yellow
+    if command == '0000D4':
+        if ctx not in {'Fullscreen video'}:
+            if bool(kodi.Player.GetProperties(playerid=playerObj.get('playerid'),properties=['partymode'])['result']['partymode']) is True:
+                kodi.Player.SetPartymode(playerid=playerObj.get('playerid'), partymode=False)
+                message = 'Party Mode DISABLED'
+            else:
+                kodi.Player.SetPartymode(playerid=playerObj.get('playerid'), partymode=True)
+                message = 'Party Mode ENABLED'
+            kodi.GUI.ShowNotification(title='Party Mode', message=message, displaytime=1500)
         return
 
     # Go
