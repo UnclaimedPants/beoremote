@@ -14,3 +14,7 @@ This repo includes the Arduino code to listen to commands sent from a Beo4 remot
 ## Kodi Integration
 
 This repo also includes a python daemon which listens for IR commands and sends them to Kodi TV over JSON RPC API. 
+
+## Credits
+
+Most of the arduino code was done by https://github.com/christianlykke9/Beomote
