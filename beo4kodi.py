@@ -140,7 +140,7 @@ def ir_command(kodi, remote, command):
             return
 
     # Mapped codes
-    if command in {'0000D4', '00000D', '00005C', '000036', '0000D5', '0000D9', '000035', '00001E', '00001F', '000032', '000034', '000088'}:
+    if command in {'0000D8', '0000D4', '00000D', '00005C', '000036', '0000D5', '0000D9', '000035', '00001E', '00001F', '000032', '000034', '000088', '000070', '000071', '000072', '000073'}:
         pass
     else:
         log.debug('Unmapped Code: ' + command)
@@ -172,6 +172,11 @@ def ir_command(kodi, remote, command):
         kodi.Player.PlayPause(playerObj.get('playerid'))
         return
 
+    # Blue
+    if command == '0000D8':
+        kodi.Input.ContextMenu()
+        return
+
     # Red
     if command == '0000D9':
         kodi.Player.Stop(playerObj.get('playerid'))
@@ -198,7 +203,7 @@ def ir_command(kodi, remote, command):
         return
 
     # Up
-    if command == '00001E':
+    if command in {'000072', '00001E'}:
         if ctx == 'Fullscreen video':
             kodi.Player.Seek(playerid=playerObj.get('playerid'), value=add_time(playerObj, timedelta(minutes=10)))
         else:
@@ -206,7 +211,7 @@ def ir_command(kodi, remote, command):
         return
 
     # Down
-    if command == '00001F':
+    if command in {'000073', '00001F'}:
         if ctx == 'Fullscreen video':
             kodi.Player.Seek(playerid=playerObj.get('playerid'), value=sub_time(playerObj, timedelta(minutes=10)))
         else:
@@ -214,7 +219,7 @@ def ir_command(kodi, remote, command):
         return
 
     # Left
-    if command == '000032':
+    if command in {'000070', '000032'}:
         if ctx in {'Fullscreen video', 'Audio visualisation'}:
             if playerObj.get('type') == 'audio':
                 kodi.Input.ExecuteAction(action='skipprevious')
@@ -225,7 +230,7 @@ def ir_command(kodi, remote, command):
         return
 
     # Right
-    if command == '000034':
+    if command in {'000071', '000034'}:
         if ctx in {'Fullscreen video', 'Audio visualisation'}:
             if playerObj.get('type') == 'audio':
                 # Next track
