@@ -4,16 +4,17 @@
 # And run:
 #   sudo systemctl daemon-reload
 #   sudo systemctl start beo4kodi
+#   sudo systemctl enable beo4kodi
 #
 [Unit]
 Description=Beo4 for Kodi
 After=multi-user.target
 
 [Service]
-WorkingDirectory=/home/user/
-User=user
+Environment=
+WorkingDirectory=/usr/local/bin
 Type=idle
-ExecStart=/usr/bin/python /home/user/beo4kodi.py
+ExecStart=/usr/bin/python /usr/local/bin/beo4kodi.py
 Restart=always
 
 [Install]

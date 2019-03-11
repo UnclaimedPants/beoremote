@@ -10,6 +10,7 @@
 # Github: unclaimedpants
 #
 
+from os import environ
 from time import sleep
 from nptime import nptime
 from kodipydent import Kodi
@@ -18,10 +19,10 @@ from datetime import timedelta
 import logging
 import threading
 
-USERNAME = ''
-PASSWORD = ''
-KODI_HOST = ''
-IR_DEVICE = '/dev/ttyACM0'
+USERNAME = environ.get('BR_KODI_USER', 'kodi')
+PASSWORD = environ.get('BR_KODI_PASS', '')
+KODI_HOST = environ.get('BR_KODI_HOST', 'localhost')
+IR_DEVICE = environ.get('BR_IR_DEVICE', '/dev/ttyACM0')
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger()

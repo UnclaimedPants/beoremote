@@ -10,6 +10,11 @@ You have the following:
 3. Arduino connected to Kodi host via USB
 4. B&O Beo4 Remote
 
+## Getting Started
+
+Tested on Ubuntu 18.10:
+    $ ./install.sh
+
 ## IR Receiver
 
 This repo includes the Arduino code to listen to commands sent from a Beo4 remote to a B&O IR Eye
