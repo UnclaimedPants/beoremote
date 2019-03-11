@@ -12,7 +12,8 @@ You have the following:
 
 ## Getting Started
 
-Tested on Ubuntu 18.10:
+Tested on Ubuntu 18.10:  
+
     $ ./install.sh
 
 ## IR Receiver
